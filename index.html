@@ -77,7 +77,10 @@
 
 <div id="toast" hidden></div>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<!-- ?v= is a cache buster. Bump it together with SEED_VERSION in app.js whenever
+     seed content changes, or browsers keep serving the previous build's scripts
+     and the reseed never runs. -->
+<script src="data.js?v=6"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
