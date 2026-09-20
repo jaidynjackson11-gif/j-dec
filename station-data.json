@@ -1,0 +1,510 @@
+{
+  "_meta": {
+    "station": "Demo Arms - Pivot Arm Assembly",
+    "sources": [
+      "DEMO-0001 - Pivot Arm Assy, Type A, Rev A (demo document)",
+      "DEMO-0002 - Pivot Arm Assy, Type B, Rev A (demo document)"
+    ],
+    "notes": [
+      "ALL CONTENT IN THIS FILE IS FICTIONAL DEMO DATA. Part numbers, document numbers, step text and storage locations are invented for this prototype and do not describe any real product or process.",
+      "Steps follow DEMO-0001 (Type A) numbering. The Type B document is identical except: step 8 uses arm casting DM-1011-B, step 11 uses mount bracket DM-1013-B, step 26 uses cover DM-1021-B, and step 27 places finished arms on a cart instead of attaching them to the frame.",
+      "Torque values are intentionally left as 'the value on the station card' rather than numbers, since this is a demo of the interface and not a work instruction.",
+      "photoFilename paths point to files in the part-photos/ folder. The folder ships empty and the app shows placeholders."
+    ]
+  },
+  "parts": [
+    {
+      "id": "index-disk",
+      "name": "Index Disk, Pivot",
+      "partNumber": "DM-1001",
+      "photoFilename": "DM-1001_index-disk.png",
+      "whatItIs": "Machined metal disk with index notches that sets the pivot arm's stop positions. Pressed together with the hub, pins and bushing to form the disk assembly.",
+      "whereStored": "Warehouse box at the demo station.",
+      "usedInSteps": [
+        "step-01",
+        "step-05",
+        "step-18"
+      ]
+    },
+    {
+      "id": "pivot-hub",
+      "name": "Hub, Pivot",
+      "partNumber": "DM-1002",
+      "photoFilename": "DM-1002_pivot-hub.png",
+      "whatItIs": "Cast metal hub the arm pivots on. Pressed with the index disk, then attached to the arm casting.",
+      "whereStored": "Warehouse box at the demo station.",
+      "usedInSteps": [
+        "step-01",
+        "step-04",
+        "step-09",
+        "step-17",
+        "step-18"
+      ]
+    },
+    {
+      "id": "pin-short",
+      "name": "Pin, Dowel, Short",
+      "partNumber": "DM-1003",
+      "photoFilename": "DM-1003_pin-short.png",
+      "whatItIs": "Short steel dowel pin. Two are pressed into the disk/hub assembly; the latch attaches to a short pin.",
+      "whereStored": "Blue bin at the press, labeled DM-1003.",
+      "usedInSteps": [
+        "step-02",
+        "step-07"
+      ]
+    },
+    {
+      "id": "pin-long",
+      "name": "Pin, Dowel, Long",
+      "partNumber": "DM-1004",
+      "photoFilename": "DM-1004_pin-long.png",
+      "whatItIs": "Long steel dowel pin. Four are pressed into the disk/hub assembly to carry the latch spring.",
+      "whereStored": "Blue bin at the press, labeled DM-1004.",
+      "usedInSteps": [
+        "step-02"
+      ]
+    },
+    {
+      "id": "bushing-brz",
+      "name": "Bushing, Bronze",
+      "partNumber": "DM-1005",
+      "photoFilename": "DM-1005_bushing-brz.png",
+      "whatItIs": "Bronze sleeve bushing pressed into the hub so the arm swings without metal-on-metal wear.",
+      "whereStored": "Blue bin at the press, labeled DM-1005.",
+      "usedInSteps": [
+        "step-02",
+        "step-04",
+        "step-16"
+      ]
+    },
+    {
+      "id": "index-spring",
+      "name": "Spring, Index",
+      "partNumber": "DM-1006",
+      "photoFilename": "DM-1006_index-spring.png",
+      "whatItIs": "Flat spring that rides the index disk and gives the arm its click stops.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-05",
+        "step-14"
+      ]
+    },
+    {
+      "id": "screw-small",
+      "name": "Screw, Socket Head, Small",
+      "partNumber": "DM-1007",
+      "photoFilename": "DM-1007_screw-small.png",
+      "whatItIs": "Small socket-head screw that fastens the index spring to the disk.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-05",
+        "step-14"
+      ]
+    },
+    {
+      "id": "latch-spring",
+      "name": "Spring, Latch",
+      "partNumber": "DM-1008",
+      "photoFilename": "DM-1008_latch-spring.png",
+      "whatItIs": "Coil spring that loads the latch so it returns after release.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-06",
+        "step-07"
+      ]
+    },
+    {
+      "id": "latch",
+      "name": "Latch, Pivot",
+      "partNumber": "DM-1009",
+      "photoFilename": "DM-1009_latch.png",
+      "whatItIs": "Stamped latch that catches the index disk and releases the arm when tapped.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-07"
+      ]
+    },
+    {
+      "id": "index-cam",
+      "name": "Cam, Index",
+      "partNumber": "DM-1010",
+      "photoFilename": "DM-1010_index-cam.png",
+      "whatItIs": "Toothed cam that seats into the arm casting and sets the direction of travel.",
+      "whereStored": "Warehouse box at the demo station.",
+      "usedInSteps": [
+        "step-08"
+      ]
+    },
+    {
+      "id": "arm-casting",
+      "name": "Arm Casting (arm body)",
+      "partNumber": "DM-1011 (Type A) / DM-1011-B (Type B)",
+      "photoFilename": "DM-1011_arm-casting.png",
+      "whatItIs": "The main arm body. Type A and Type B builds use different finishes; Type B uses DM-1011-B.",
+      "whereStored": "Cart beside the demo station.",
+      "usedInSteps": [
+        "step-08",
+        "step-09"
+      ]
+    },
+    {
+      "id": "stud",
+      "name": "Stud, Mount",
+      "partNumber": "DM-1012",
+      "photoFilename": "DM-1012_stud.png",
+      "whatItIs": "Threaded stud that joins the mount bracket to the frame. Primed and thread-locked before use.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-10",
+        "step-11",
+        "step-12"
+      ]
+    },
+    {
+      "id": "mount-brkt",
+      "name": "Mount Bracket",
+      "partNumber": "DM-1013 (Type A) / DM-1013-B (Type B)",
+      "photoFilename": "DM-1013_mount-brkt.png",
+      "whatItIs": "Bracket that carries the finished arm onto the frame. Type B uses DM-1013-B.",
+      "whereStored": "Warehouse box at the demo station.",
+      "usedInSteps": [
+        "step-11",
+        "step-12",
+        "step-21",
+        "step-22"
+      ]
+    },
+    {
+      "id": "cork-washer",
+      "name": "Washer, Flat, Cork",
+      "partNumber": "DM-1014",
+      "photoFilename": "DM-1014_cork-washer.png",
+      "whatItIs": "Cork washer that cushions the bracket face and stops the joint squeaking.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-13"
+      ]
+    },
+    {
+      "id": "hub-plate",
+      "name": "Plate, Hub",
+      "partNumber": "DM-1015",
+      "photoFilename": "DM-1015_hub-plate.png",
+      "whatItIs": "Retaining plate that closes the hub pocket and holds the index spring captive.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-15",
+        "step-22",
+        "step-23"
+      ]
+    },
+    {
+      "id": "screw-flat",
+      "name": "Screw, Flat Head Socket",
+      "partNumber": "DM-1016",
+      "photoFilename": "DM-1016_screw-flat.png",
+      "whatItIs": "Flat-head socket screw, black finish, used in pairs to fasten the hub plates.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-15"
+      ]
+    },
+    {
+      "id": "washer-hub",
+      "name": "Washer, Hub",
+      "partNumber": "DM-1017",
+      "photoFilename": "DM-1017_washer-hub.png",
+      "whatItIs": "Thin washer that sits between the hub and the disk assembly.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-17"
+      ]
+    },
+    {
+      "id": "bushing-ext",
+      "name": "Bushing, Exterior",
+      "partNumber": "DM-1018",
+      "photoFilename": "DM-1018_bushing-ext.png",
+      "whatItIs": "White plastic bushing that finishes the outside face of the arm.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-20",
+        "step-21"
+      ]
+    },
+    {
+      "id": "wave-spring",
+      "name": "Spring, Wave",
+      "partNumber": "DM-1019",
+      "photoFilename": "DM-1019_wave-spring.png",
+      "whatItIs": "Wave washer that sets arm tension so the arm holds position without binding.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-23"
+      ]
+    },
+    {
+      "id": "screw-button",
+      "name": "Screw, Button Head Socket",
+      "partNumber": "DM-1020",
+      "photoFilename": "DM-1020_screw-button.png",
+      "whatItIs": "Button-head socket screw that draws the arm assembly together through the wave spring.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-23"
+      ]
+    },
+    {
+      "id": "cover",
+      "name": "Cover, Arm",
+      "partNumber": "DM-1021 (Type A) / DM-1021-B (Type B)",
+      "photoFilename": "DM-1021_cover.png",
+      "whatItIs": "Snap-on cosmetic cover pressed onto the finished arm. Type B uses DM-1021-B.",
+      "whereStored": "Cart beside the demo station.",
+      "usedInSteps": [
+        "step-26"
+      ]
+    },
+    {
+      "id": "screw-frame",
+      "name": "Screw, Frame Attach",
+      "partNumber": "DM-1022",
+      "photoFilename": "DM-1022_screw-frame.png",
+      "whatItIs": "Screw used in pairs to attach the finished arm to the frame on Type A builds.",
+      "whereStored": "Small-parts bin at the bench.",
+      "usedInSteps": [
+        "step-27"
+      ]
+    }
+  ],
+  "assemblySteps": [
+    {
+      "id": "step-01",
+      "step": 1,
+      "instruction": "Place (2) DM-1001 index disks and (2) DM-1002 pivot hubs in the press, then slide under the plate.",
+      "partsUsed": [
+        "index-disk",
+        "pivot-hub"
+      ]
+    },
+    {
+      "id": "step-02",
+      "step": 2,
+      "instruction": "Insert the long and short pins and bushings into their designated spots: (2) DM-1003 short pins, (4) DM-1004 long pins, (2) DM-1005 bushings. Safety glasses must be worn when using the press.",
+      "partsUsed": [
+        "pin-short",
+        "pin-long",
+        "bushing-brz"
+      ]
+    },
+    {
+      "id": "step-03",
+      "step": 3,
+      "instruction": "Slide the tray all the way in, press both activation buttons and hold until the press is all the way down. Press both buttons again and hold until the press is all the way up. Slide the tray out and brush away debris.",
+      "partsUsed": []
+    },
+    {
+      "id": "step-04",
+      "step": 4,
+      "instruction": "Using the mallet, make sure the bushing is flush with the hub.",
+      "partsUsed": [
+        "bushing-brz",
+        "pivot-hub"
+      ]
+    },
+    {
+      "id": "step-05",
+      "step": 5,
+      "instruction": "Attach a DM-1006 index spring to the disk using a DM-1007 screw. Repeat for the right/left assembly. Make sure the index spring and disk are flush.",
+      "partsUsed": [
+        "index-spring",
+        "screw-small",
+        "index-disk"
+      ]
+    },
+    {
+      "id": "step-06",
+      "step": 6,
+      "instruction": "Slide the DM-1008 latch spring over the pins.",
+      "partsUsed": [
+        "latch-spring"
+      ]
+    },
+    {
+      "id": "step-07",
+      "step": 7,
+      "instruction": "Attach the latch to the short pin, making sure to catch the tail of the spring. The dowel pin must be centered on the latch and not bent.",
+      "partsUsed": [
+        "pin-short",
+        "latch",
+        "latch-spring"
+      ]
+    },
+    {
+      "id": "step-08",
+      "step": 8,
+      "instruction": "Add the DM-1010 index cam to the DM-1011 arm casting (DM-1011-B on Type B builds), matching the direction of the teeth with the direction of the indicator. Repeat for the opposite arm.",
+      "partsUsed": [
+        "index-cam",
+        "arm-casting"
+      ]
+    },
+    {
+      "id": "step-09",
+      "step": 9,
+      "instruction": "Attach the hubs to the arm using the rubber mallet, lining up the screw holes and making sure they make a solid connection. Points on the hub always face the groove on the arm when placed correctly.",
+      "partsUsed": [
+        "pivot-hub",
+        "arm-casting"
+      ]
+    },
+    {
+      "id": "step-10",
+      "step": 10,
+      "instruction": "All DM-1012 studs must be primed with thread-locker primer and dry before use.",
+      "partsUsed": [
+        "stud"
+      ]
+    },
+    {
+      "id": "step-11",
+      "step": 11,
+      "instruction": "Set the DM-1013 mount bracket (DM-1013-B on Type B builds) into the fixture. Add red thread locker to the threads of the DM-1012 stud and hand-start it into the bracket.",
+      "partsUsed": [
+        "mount-brkt",
+        "stud"
+      ]
+    },
+    {
+      "id": "step-12",
+      "step": 12,
+      "instruction": "Drive the stud into the bracket. Make sure the stud is flush and centered, then torque to the value on the station card.",
+      "partsUsed": [
+        "mount-brkt",
+        "stud"
+      ]
+    },
+    {
+      "id": "step-13",
+      "step": 13,
+      "instruction": "Add the DM-1014 cork washer, making sure there is no tearing in the process.",
+      "partsUsed": [
+        "cork-washer"
+      ]
+    },
+    {
+      "id": "step-14",
+      "step": 14,
+      "instruction": "Attach a DM-1006 index spring with a DM-1007 screw. The side of the spring must be flush with the opening and in contact with the inner surface of the pocket. The index spring must be snug.",
+      "partsUsed": [
+        "index-spring",
+        "screw-small"
+      ]
+    },
+    {
+      "id": "step-15",
+      "step": 15,
+      "instruction": "Attach (2) DM-1015 plates with (2) DM-1016 screws, torqued to the value on the station card. Using a marker, write your initials on the plate.",
+      "partsUsed": [
+        "hub-plate",
+        "screw-flat"
+      ]
+    },
+    {
+      "id": "step-16",
+      "step": 16,
+      "instruction": "Burnish the arm assembly, making sure you go all the way through the bushing. Ensure the guard is all the way down before using.",
+      "partsUsed": [
+        "bushing-brz"
+      ]
+    },
+    {
+      "id": "step-17",
+      "step": 17,
+      "instruction": "Add a DM-1017 washer to the hub.",
+      "partsUsed": [
+        "washer-hub",
+        "pivot-hub"
+      ]
+    },
+    {
+      "id": "step-18",
+      "step": 18,
+      "instruction": "Place the index disk assembly by sliding it over the hub while holding the latch out at the same time.",
+      "partsUsed": [
+        "index-disk",
+        "pivot-hub"
+      ]
+    },
+    {
+      "id": "step-19",
+      "step": 19,
+      "instruction": "Check for matching letters: when assembled properly, a right arm shows two R's and a left arm shows two L's.",
+      "partsUsed": []
+    },
+    {
+      "id": "step-20",
+      "step": 20,
+      "instruction": "Insert the DM-1018 bushing into the outside of the arm assembly.",
+      "partsUsed": [
+        "bushing-ext"
+      ]
+    },
+    {
+      "id": "step-21",
+      "step": 21,
+      "instruction": "Insert the bracket assembly into the arm assembly while holding the exterior bushing in place.",
+      "partsUsed": [
+        "mount-brkt",
+        "bushing-ext"
+      ]
+    },
+    {
+      "id": "step-22",
+      "step": 22,
+      "instruction": "Orientation check: when assembled properly, the side of the plate with 2 pins is located over the shallow end of the bracket.",
+      "partsUsed": [
+        "hub-plate",
+        "mount-brkt"
+      ]
+    },
+    {
+      "id": "step-23",
+      "step": 23,
+      "instruction": "With a pneumatic driver, tighten the DM-1019 wave spring and DM-1020 screw to the torque value on the station card. Assembler initials the DM-1015 plate.",
+      "partsUsed": [
+        "wave-spring",
+        "screw-button",
+        "hub-plate"
+      ]
+    },
+    {
+      "id": "step-24",
+      "step": 24,
+      "instruction": "Insert the arm into the test fixture and flip it into the back position. The arm will be horizontal to the floor in the back position. Wipe down the arm with the appropriate cleaner.",
+      "partsUsed": []
+    },
+    {
+      "id": "step-25",
+      "step": 25,
+      "instruction": "Flip the arm forward. It should stop at the middle position. At the middle position, tap the bottom end of the arm to release it; the arm should fall smoothly into the down position. Repeat steps 24 and 25 with the other arm.",
+      "partsUsed": []
+    },
+    {
+      "id": "step-26",
+      "step": 26,
+      "instruction": "Put the arm assembly into the press fixture. Line up the DM-1021 cover (DM-1021-B on Type B builds) with the arm and press the cover onto the arm.",
+      "partsUsed": [
+        "cover"
+      ]
+    },
+    {
+      "id": "step-27",
+      "step": 27,
+      "instruction": "Type A builds: attach arms to the frame using (2) DM-1022 screws, torqued to the value on the station card. Type B builds: place finished arms on the cart.",
+      "partsUsed": [
+        "screw-frame"
+      ]
+    }
+  ]
+}
