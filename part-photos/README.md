@@ -1,15 +1,8 @@
 # part-photos
 
-Drop the station part photos in this folder. Filenames must match the
-`photoFilename` values in `station-data.json`, e.g.:
+This folder is empty on purpose.
 
-- `DM-1001_body-lower.png`
-- `DM-1002_body-upper.png`
-- `DM-1003_oring-small.png`
-- ...
-
-Until a photo is present, the app shows a "Photo pending" placeholder
-with the part number — nothing breaks.
-
-Note: this demo ships with no photos. The part numbers above are fictional,
-like everything else in `station-data.json`.
+If station content is ever added to `station-data.json`, part photos go here and
+their filenames must match the `photoFilename` values in that file. Until then
+there is nothing to show, and the app renders a "Photo pending" placeholder for
+any part it is given.
