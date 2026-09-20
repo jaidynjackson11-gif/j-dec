@@ -1,52 +1,54 @@
 # J-Dec — Shop Floor Demo
 
-> **All data in this repository is fictional.** Part numbers, document numbers,
-> assembly steps, torque references, department names, station names, employees
-> and storage locations are invented for this prototype. Nothing here describes
-> any real company, product, or manufacturing process.
+> **This project ships with no data.** There are no departments, areas,
+> stations, tasks, employees, work instructions, part numbers, assembly steps,
+> torque references, improvement ideas, injury reports or alerts in it. Every
+> screen renders its empty state.
+>
+> J-Dec is a user-interface prototype. It is published to show how the screens
+> look and how they fit together, not to carry data of any kind. Nothing here
+> describes any real company, product, process, employer or workplace.
 
-WorkDay-style shop-floor demo for tablets. Plain HTML/CSS/JS — no build step,
+WorkDay-style shop-floor UI demo for tablets. Plain HTML/CSS/JS — no build step,
 runs as-is on GitHub Pages. White theme, #0072CE accent, SVG line icons.
 
 ## Sign-in
 
-Client-side access code (demo lock, not real security). Pick who is signing in:
+Client-side access code (demo lock, not real security). Pick a profile:
 
-- **Supervisor** — management access (all apps)
-- **Station Tablet** — standard access
+- **Management profile** — management access (all apps)
+- **Station tablet** — standard access
 
 ## Apps
 
-| App | Access | What it does |
+Twelve screens, each rendering its empty state until content is supplied.
+
+| App | Access | What the screen does |
 |---|---|---|
-| Digital SWI | All | SWI picker (dept/area filters + search) with the live Demo Cell walkthrough; other SWIs are obvious fillers |
-| Trainer | All | Walkthrough with 3D-render placeholders + chronological build quiz (100% to pass) |
-| Stations | All (edit: mgmt) | Station lookup — ID, tasks, trained employees; management can add/edit stations |
-| Part Library | All | Search Demo Cell parts by name/number — photo, description, storage, steps used |
-| OFI Submit | All | Submit improvement ideas tagged to dept/area/station |
-| Injury Report | All | Incident form (department dropdown); submissions visible only to management |
-| Training | Management | Search employees, view training grouped Dept → Station → Task, add training with dual sign-off, remove with logged reason |
-| People | Management | Employee lookup — details, absences, submitted OFIs (tap to read), change history |
-| Reinforcement | Management | Alert supervisors with trained employees, by station ID or whole department |
+| Digital SWI | All | Work-instruction picker with department/area filters and search |
+| Trainer | All | Step-by-step station walkthrough plus a chronological build quiz |
+| Stations | All (edit: mgmt) | Station lookup — ID, tasks, trained employees; management can add and edit |
+| Part Library | All | Part search by name or number — photo, description, storage, steps used |
+| OFI Submit | All | Submit improvement ideas tagged to department/area/station |
+| Injury Report | All | Incident form; submissions visible only to management |
+| Training | Management | Employee training grouped Dept → Station → Task, dual sign-off, logged removals |
+| People | Management | Employee lookup — details, absences, submitted OFIs, change history |
+| Reinforcement | Management | Request trained help by station or department |
 | Alerts | Management | Inbox of reinforcement requests, unread badge on the home tile |
-| OFI Review | Management | Filter submitted OFIs by dept/area/station, update status; oil-nozzle OFI includes a full savings worksheet |
+| OFI Review | Management | Filter submitted OFIs, update status |
 | Submitted Injury Reports | Management | All injury reports with submission timestamps |
 
-Naming: every department, area and station name in this demo is fictional filler
-stations, Demo Cell). Everything else is an obvious filler like `abc123` /
-`abcde SWI` so it can't be mistaken for a real station.
-
-All data is demo data stored in the browser's `localStorage` — nothing leaves
-the device. Reset from Profile → "Reset demo data".
+Anything entered while using the demo is stored in the browser's `localStorage`
+and never leaves the device. Clear it from Profile → "Reset demo data".
 
 ## Files
 
-- `data.js` — org structure (departments → areas → stations → tasks, station IDs),
-  demo employees, SWI catalog, seeded OFIs
-- `station-data.json` — fictional Demo Cell walkthrough content (SWI DEMO-0001/0002)
-- `part-photos/` — drop part photos here, filenames matching `photoFilename`
-  in station-data.json (placeholders show until then)
-- `logo.png` — header/sign-in logo
+- `data.js` — org structure, employees, work-instruction catalog, seed records.
+  **Ships empty.**
+- `station-data.json` — station walkthrough content. **Ships empty**: no parts,
+  no steps, no documents.
+- `part-photos/` — empty; part photos would go here if content were ever added
+- `logo.png` — header and sign-in logo
 
 ## Running locally
 
