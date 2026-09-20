@@ -22,8 +22,12 @@ function loadLS(key, fallback) {
 }
 function saveLS(key, v) { localStorage.setItem(key, JSON.stringify(v)); }
 
-/* one-time seed (version-bumped so redeploys refresh stale demo data) */
-const SEED_VERSION = "5";
+/* One-time seed, version-bumped so a redeploy refreshes stale demo data.
+   BUMP THIS WHENEVER ANY SEED_* CONTENT CHANGES. A browser that has already
+   run an older seed keeps its own copy in localStorage and the app reads that
+   in preference to anything shipped in data.js, so shipping new seed content
+   without bumping the version silently changes nothing for existing visitors. */
+const SEED_VERSION = "6";
 function seedAll() {
   saveLS(LS.emps, SEED_EMPLOYEES);
   saveLS(LS.ofis, SEED_OFIS);
@@ -33,7 +37,12 @@ function seedAll() {
   localStorage.removeItem(LS.alerts);
   localStorage.setItem(LS.seeded, SEED_VERSION);
 }
-if (localStorage.getItem(LS.seeded) !== SEED_VERSION) seedAll();
+/* On a version mismatch, clear every jdec2-* key before reseeding so no stale
+   value from an older build can survive into the new one. */
+if (localStorage.getItem(LS.seeded) !== SEED_VERSION) {
+  Object.values(LS).forEach(k => localStorage.removeItem(k));
+  seedAll();
+}
 
 function getEmps() { return loadLS(LS.emps, SEED_EMPLOYEES); }
 function getOfis() { return loadLS(LS.ofis, SEED_OFIS); }
