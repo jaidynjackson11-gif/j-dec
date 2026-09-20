@@ -829,7 +829,7 @@ function renderReinforceHistory() {
 }
 
 /* ============================================================
-   Station data (Demo Arms) — shared by Trainer / SWI / Parts
+   Station data (Demo Cell) — shared by Trainer / SWI / Parts
 ============================================================ */
 let STATION = null;
 let stationPromise = null;
@@ -949,8 +949,8 @@ function renderSwiViewer(id) {
   const s = steps[swiIdx];
   const whiteNote = meta.variant === "TYPE-B"
     ? `<div class="restricted" style="margin:0 0 1rem">${icon("i-doc")} Type B build (SWI DEMO-0002 Rev A):
-       step 8 uses DM-1011-B, step 11 uses DM-1013-B, step 26 uses DM-1021-B, and step 27 places
-       finished arms on the cart instead of attaching to the frame.</div>` : "";
+       step 18 uses DM-1011-B, step 22 uses DM-1013-B, step 26 uses DM-1021-B, and step 27 places
+       the finished manifold on the outfeed cart instead of fastening it to the demo bracket.</div>` : "";
 
   viewEl.innerHTML = topbar(`SWI ${meta.num}`, "swi") + `
     <p class="muted" style="padding:1rem 1.4rem .8rem">${esc(meta.title)} — ${esc(meta.station)}</p>
@@ -988,7 +988,7 @@ function renderSwiViewer(id) {
 function renderTrainerHome() {
   viewEl.innerHTML = topbar("Trainer") + `
     <p class="muted" style="padding:1rem 1.4rem 0">Learn a station's build step-by-step,
-      then prove it in the quiz. Demo Arms is the live demo station.</p>
+      then prove it in the quiz. Demo Cell is the live demo station.</p>
     <div class="page-pad"></div>
     <button class="list-row" id="tWalk" style="min-height:96px">
       <span class="app-icon">${icon("i-clipboard")}</span>
@@ -999,14 +999,14 @@ function renderTrainerHome() {
     <button class="list-row" id="tQuiz" style="min-height:96px">
       <span class="app-icon">${icon("i-cap")}</span>
       <span class="grow"><b style="font-size:1.1rem">Build Quiz</b><br>
-        <span class="muted small">Assemble the arm in order — pick the next part, 100% to pass</span></span>
+        <span class="muted small">Assemble the manifold in order — pick the next part, 100% to pass</span></span>
       <span class="chev">${icon("i-chev")}</span>
     </button>`;
   document.getElementById("tWalk").addEventListener("click", () => go("trainer/walk"));
   document.getElementById("tQuiz").addEventListener("click", () => go("trainer/quiz"));
 }
 
-/* pick a station first — only Demo Arms has live walkthrough content */
+/* pick a station first — only Demo Cell has live walkthrough content */
 function renderTrainerWalkPicker() {
   viewEl.innerHTML = topbar("Walkthrough", "trainer") + `
     <p class="muted" style="padding:1rem 1.4rem 0">Choose the station you want to walk through.</p>
@@ -1027,7 +1027,7 @@ function renderTrainerWalkPicker() {
         <span class="app-icon" style="width:52px;height:52px">${icon("i-cap")}</span>
         <span class="grow"><b>${esc(s.name)}</b><br>
           <span class="muted small">${esc(s.id)} · ${esc(s.dept)} · ${esc(s.area)}</span></span>
-        ${s.name === "Demo Arms" ? `<span class="chip ok">LIVE</span>` : `<span class="chip gray">PENDING</span>`}
+        ${s.name === "Demo Cell" ? `<span class="chip ok">LIVE</span>` : `<span class="chip gray">PENDING</span>`}
         <span class="chev">${icon("i-chev")}</span>
       </button>`).join("");
     viewEl.querySelectorAll("[data-tw]").forEach(b =>
@@ -1041,7 +1041,7 @@ let walkIdx = 0;
 function renderTrainerWalk(stationId) {
   const st = allStations().find(s => s.id === stationId);
   if (!st) return go("trainer/walk");
-  if (st.name !== "Demo Arms") {
+  if (st.name !== "Demo Cell") {
     viewEl.innerHTML = topbar("Walkthrough", "trainer/walk") + `
       <div class="page-pad"></div>
       <div class="card" style="text-align:center;padding:2.5rem 1.5rem">
@@ -1051,7 +1051,7 @@ function renderTrainerWalk(stationId) {
         </div>
         <h2>${esc(st.name)} — ${esc(st.id)}</h2>
         <p class="muted">Walkthrough content for this station hasn't been built yet.
-          Demo Arms is the live demo station.</p>
+          Demo Cell is the live demo station.</p>
       </div>`;
     return;
   }
@@ -1064,7 +1064,7 @@ function renderTrainerWalk(stationId) {
   if (walkIdx >= steps.length) walkIdx = 0;
   const s = steps[walkIdx];
 
-  viewEl.innerHTML = topbar("Demo Arms Walkthrough", "trainer/walk") + `
+  viewEl.innerHTML = topbar("Demo Cell Walkthrough", "trainer/walk") + `
     <div style="height:1rem"></div>
     <div class="progress"><div style="width:${((walkIdx + 1) / steps.length) * 100}%"></div></div>
     <div class="card">
@@ -1361,7 +1361,7 @@ function renderOfiReview() {
 ============================================================ */
 function renderPartLibrary() {
   viewEl.innerHTML = topbar("Part Library") + `
-    <p class="muted" style="padding:1rem 1.4rem 0">Demo Arms station parts — search by name
+    <p class="muted" style="padding:1rem 1.4rem 0">Demo Cell station parts — search by name
       or part number.</p>
     <div class="search-box">${icon("i-search")}
       <input type="search" id="partQ" placeholder="Search name or part number" autocomplete="off">

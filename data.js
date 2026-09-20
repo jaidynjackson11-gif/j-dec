@@ -1,9 +1,10 @@
 /* J-Dec demo data: org structure, employees, SWI catalog, seed OFIs/injuries/alerts.
-   NAMING RULE: only names actually provided are used (departments; Assembly areas
-   Line A, Line B, Subs, Module, Packaging; stations Drives, Base,
-   Frame, Cushion, Leak Test, Inspection, Packaging, Demo Arms). Everything
-   else is an obvious random filler like "abc123" so nobody mistakes it for a
-   real station. Demo Arms tasks come from the real SWI content. */
+
+   EVERYTHING IN THIS FILE IS FICTIONAL. The departments, areas, stations,
+   tasks, people, improvement ideas, reports and alerts are invented to
+   exercise the interface. Names like "abc123" are obvious fillers; the
+   named ones are no more real than the fillers. Nothing here describes any
+   real product, process, employer or workplace. */
 "use strict";
 
 /* ============================================================
@@ -31,8 +32,7 @@ const ORG = [
         ],
       },
       {
-        // Line A and Line B converge here per the demo line flow:
-        // Drives -> Base -> Frame -> Cushion -> Leak Test -> Inspection -> Packaging
+        // Both demo lines converge on these shared stations.
         area: "Shared (Line A & Line B)",
         stations: [
           { id: "ST-107", name: "Leak Test", tasks: ["ee55", "ff66"] },
@@ -45,8 +45,8 @@ const ORG = [
         stations: [
           {
             id: "ST-110",
-            name: "Demo Arms",
-            tasks: ["Press Operations", "Disk Assembly", "Stud & Thread Lock", "Arm Build", "Torque & Function Test", "Cover & Finish"],
+            name: "Demo Cell",
+            tasks: ["Body Prep", "Seal Install", "Cartridge Install", "Plate & Adapter", "Leak & Function Test", "Cover & Tag"],
           },
           { id: "ST-111", name: "ghi789", tasks: ["kk12", "ll34"] },
           { id: "ST-112", name: "jkl012", tasks: ["mm56", "nn78"] },
@@ -140,18 +140,18 @@ const SEED_EMPLOYEES = [
   {
     num: "100001",
     name: "Jaidyn Jackson",
-    birthday: "May 11",
+    birthday: "Mar 4",
     hireDate: "2026-06-29",
     department: "Assembly",
     supervisor: "M. Alvarez",
     absences: [],
     training: [
-      t("Assembly", "Subs", "Demo Arms", "Press Operations", "2026-06-30"),
-      t("Assembly", "Subs", "Demo Arms", "Disk Assembly", "2026-07-01"),
-      t("Assembly", "Subs", "Demo Arms", "Stud & Thread Lock", "2026-07-02"),
-      t("Assembly", "Subs", "Demo Arms", "Arm Build", "2026-07-06"),
-      t("Assembly", "Subs", "Demo Arms", "Torque & Function Test", "2026-07-07"),
-      t("Assembly", "Subs", "Demo Arms", "Cover & Finish", "2026-07-08"),
+      t("Assembly", "Subs", "Demo Cell", "Body Prep", "2026-06-30"),
+      t("Assembly", "Subs", "Demo Cell", "Seal Install", "2026-07-01"),
+      t("Assembly", "Subs", "Demo Cell", "Cartridge Install", "2026-07-02"),
+      t("Assembly", "Subs", "Demo Cell", "Plate & Adapter", "2026-07-06"),
+      t("Assembly", "Subs", "Demo Cell", "Leak & Function Test", "2026-07-07"),
+      t("Assembly", "Subs", "Demo Cell", "Cover & Tag", "2026-07-08"),
     ],
     changeLog: [],
   },
@@ -167,9 +167,9 @@ const SEED_EMPLOYEES = [
       { date: "2026-01-06", type: "Sick" },
     ],
     training: [
-      t("Assembly", "Subs", "Demo Arms", "Press Operations", "2018-04-10"),
-      t("Assembly", "Subs", "Demo Arms", "Arm Build", "2018-05-02"),
-      t("Assembly", "Subs", "Demo Arms", "Torque & Function Test", "2018-05-20"),
+      t("Assembly", "Subs", "Demo Cell", "Body Prep", "2018-04-10"),
+      t("Assembly", "Subs", "Demo Cell", "Plate & Adapter", "2018-05-02"),
+      t("Assembly", "Subs", "Demo Cell", "Leak & Function Test", "2018-05-20"),
       t("Assembly", "Line A", "Drives", "abc123", "2021-09-30"),
       t("Kitting", "abc111", "kt101", "ss46", "2023-06-08"),
     ],
@@ -202,10 +202,10 @@ const SEED_EMPLOYEES = [
     supervisor: "M. Alvarez",
     absences: [],
     training: [
-      t("Assembly", "Subs", "Demo Arms", "Press Operations", "2020-08-11"),
-      t("Assembly", "Subs", "Demo Arms", "Disk Assembly", "2020-08-25"),
-      t("Assembly", "Subs", "Demo Arms", "Arm Build", "2020-09-15"),
-      t("Assembly", "Subs", "Demo Arms", "Torque & Function Test", "2021-02-03"),
+      t("Assembly", "Subs", "Demo Cell", "Body Prep", "2020-08-11"),
+      t("Assembly", "Subs", "Demo Cell", "Seal Install", "2020-08-25"),
+      t("Assembly", "Subs", "Demo Cell", "Plate & Adapter", "2020-09-15"),
+      t("Assembly", "Subs", "Demo Cell", "Leak & Function Test", "2021-02-03"),
       t("Assembly", "Module", "mno345", "oo90", "2024-10-09"),
     ],
     changeLog: [],
@@ -243,7 +243,7 @@ const SEED_EMPLOYEES = [
       t("Assembly", "Line A", "Drives", "abc123", "2023-06-01"),
       t("Assembly", "Line A", "Drives", "def456", "2023-06-22"),
       t("Assembly", "Line A", "Cushion", "stu901", "2024-09-10"),
-      t("Assembly", "Subs", "Demo Arms", "Press Operations", "2025-10-03"),
+      t("Assembly", "Subs", "Demo Cell", "Body Prep", "2025-10-03"),
     ],
     changeLog: [],
   },
@@ -295,8 +295,8 @@ function t(dept, area, station, task, date) {
    SWI catalog — two demo SWIs + obvious fillers ("abcde SWI")
 ============================================================ */
 const SWI_CATALOG = [
-  { id: "swi-demo-a", num: "DEMO-0001", title: "Demo Assy, Pivot Arm — Type A (Rev A)", dept: "Assembly", area: "Subs", station: "Demo Arms", real: true },
-  { id: "swi-demo-b", num: "DEMO-0002", title: "Demo Assy, Pivot Arm — Type B (Rev A)", dept: "Assembly", area: "Subs", station: "Demo Arms", real: true, variant: "TYPE-B" },
+  { id: "swi-demo-a", num: "DEMO-0001", title: "Demo Assy, Valve Manifold — Type A (Rev A)", dept: "Assembly", area: "Subs", station: "Demo Cell", real: true },
+  { id: "swi-demo-b", num: "DEMO-0002", title: "Demo Assy, Valve Manifold — Type B (Rev A)", dept: "Assembly", area: "Subs", station: "Demo Cell", real: true, variant: "TYPE-B" },
   { id: "swi-f01", num: "00001", title: "abcde SWI", dept: "Assembly", area: "Line A", station: "Drives" },
   { id: "swi-f02", num: "00002", title: "fghij SWI", dept: "Assembly", area: "Line A", station: "Base" },
   { id: "swi-f03", num: "00003", title: "klmno SWI", dept: "Assembly", area: "Line A", station: "Frame" },
@@ -313,8 +313,9 @@ const SWI_CATALOG = [
 ];
 
 /* ============================================================
-   Seed OFIs — the two real ideas, pre-submitted.
-   The oil-nozzle OFI carries a full savings worksheet.
+   Seed OFIs — invented demo submissions, pre-loaded so the app
+   has something to show. Neither describes a real workplace.
+   The first carries a full savings worksheet to demo the format.
 ============================================================ */
 const SEED_OFIS = [
   {
@@ -322,18 +323,18 @@ const SEED_OFIS = [
     submitter: "Jaidyn Jackson",
     empNum: "100001",
     dept: "Assembly",
-    area: "Line A",
-    station: "Base",
-    title: "Self-seating oil fill nozzle / handle",
+    area: "Subs",
+    station: "Demo Cell",
+    title: "Self-draining rinse basket for the parts washer",
     description:
-      "During the oil fill on Line A (also applies to Line B), the assembler has to stand and hold the fill nozzle in the tank for the entire fill — an illustrative 12.00 seconds of non-value-added waiting per unit. Modify the nozzle/handle so it either clips onto the cart or the hose end curls/rounds so it stays seated in the tank on its own. That frees the assembler to keep working during every fill instead of standing idle holding a hose.",
+      "In this demo scenario the washer basket has no drain slots, so after every wash the assembler tips the basket by hand and waits for it to stop dripping before the castings can be blown dry — an illustrative 12.00 seconds of waiting per unit. Adding drain slots to the basket floor would let it drain on its own while the assembler moves to the next task. Figures below are placeholders for demonstrating the worksheet, not measurements of anything.",
     status: "submitted",
     submittedAt: "2026-07-08T09:42:00",
     worksheet: {
-      intro: "Value model — plug in your own production numbers. The only fixed input is the measured time saving; every other value is a variable management can fill in from internal data.",
+      intro: "Value model — plug in your own production numbers. The only fixed input is the time saving, and in this demo that figure is invented. Every other value is a variable management would fill in from internal data.",
       fixed: "T = 12.00 seconds of operator waiting eliminated per unit (illustrative demo figure, not a real measurement).",
       variables: [
-        ["A", "Assembly produced per day on the line (units/day)"],
+        ["A", "Units produced per day on the line (units/day)"],
         ["B", "Production workdays per year (days/year)"],
         ["C", "Fully burdened labor rate ($/hour — wages + benefits + overhead)"],
         ["D", "Current total assembly labor time per unit (seconds)"],
@@ -343,7 +344,7 @@ const SEED_OFIS = [
       formulas: [
         ["Daily labor hours saved",
          "H_day = (T × A) ÷ 3,600",
-         "Each unit returns T seconds of productive time; multiply by daily volume and convert seconds to hours (3,600 s = 1 h). Assumes the fill happens once per unit."],
+         "Each unit returns T seconds of productive time; multiply by daily volume and convert seconds to hours (3,600 s = 1 h). Assumes the step happens once per unit."],
         ["Annual labor hours saved",
          "H_yr = (T × A × B) ÷ 3,600",
          "Daily savings scaled across the production year."],
@@ -352,7 +353,7 @@ const SEED_OFIS = [
          "Recovered hours valued at the fully burdened rate. This is redeployed capacity, not headcount reduction — the operator keeps working instead of waiting."],
         ["Process efficiency gain",
          "Efficiency % = (T ÷ D) × 100",
-         "The share of today's assembly cycle that is pure non-value-added waiting. Removing it is a direct cycle-time reduction with zero quality risk."],
+         "The share of the cycle that is pure non-value-added waiting. Removing it is a direct cycle-time reduction with no quality risk."],
         ["Additional annual capacity",
          "N = (T × A × B) ÷ D",
          "If the freed seconds are re-invested in assembly, they add up to whole additional units per year (freed seconds per year divided by the labor seconds in one unit)."],
@@ -360,7 +361,7 @@ const SEED_OFIS = [
          "R = N × E × F",
          "Only counts if the extra capacity is actually needed and sold; F keeps the estimate honest (set F = 0 to exclude it entirely)."],
       ],
-      lean: "Lean/CI framing: the 12.00 s is Waiting — one of the classic 8 wastes — and eliminating it is a textbook kaizen: small, cheap, applies to every unit, no quality risk. The same inputs feed standard metrics: cycle-time reduction (T ÷ D), OEE performance uplift on the line, and takt-time headroom (freed time per shift vs. takt). Assumptions: the operator has useful work available during the fill (they do today — they stand holding the hose), the fill occurs on every unit, and C is the burdened rate, not base wage.",
+      lean: "Lean/CI framing: the 12.00 s is Waiting — one of the classic 8 wastes — and eliminating it is a textbook kaizen: small, cheap, applies to every unit, no quality risk. The same inputs feed standard metrics: cycle-time reduction (T ÷ D), OEE performance uplift, and takt-time headroom (freed time per shift vs. takt). Assumptions: the operator has useful work available during the wait, the step occurs on every unit, and C is the burdened rate rather than base wage.",
     },
   },
   {
@@ -369,10 +370,10 @@ const SEED_OFIS = [
     empNum: "100001",
     dept: "Assembly",
     area: "Subs",
-    station: "Demo Arms",
-    title: "Parts cart sized for a full 16-arm set",
+    station: "Demo Cell",
+    title: "Shadow board for the demo cell hand tools",
     description:
-      "At the Demo Arms station, the parts bin (mount brackets + arms) sits about 2 steps from the prep counter, and assemblers carry ~4 brackets per trip — 4 trips to stage all 16 (one full rack = 8 arm-sets = 16 arms). The counter and build area can't move. A cart sized to carry a full 16-arm set of parts cuts that to one trip: wheel to the bin, load everything, wheel to the counter to prep, then wheel to the build station with everything in reach.",
+      "In this demo scenario the deburr tool, plastic pick and depth gauge live loose in a drawer, so each one gets hunted for at the start of a build and is easy to leave behind at the test bench. A shadow board above the prep mat would give all three a marked home, make a missing tool obvious at a glance, and remove the hunting time from the front of every build. Invented example, used here to show what a second submission looks like in the list.",
     status: "submitted",
     submittedAt: "2026-07-08T09:55:00",
   },
@@ -384,7 +385,7 @@ const SEED_OFIS = [
 const SEED_INJURIES = [
   {
     name: "Evan Marsh",
-    what: "Slipped on a small patch of hydraulic oil next to the fill cart and twisted my right ankle. Was able to finish the shift; reporting so the spill spot gets checked.",
+    what: "Caught the back of my hand on a burr while unloading the washer basket. Cleaned and covered it at the first aid station and finished the shift; reporting it so the basket gets checked. (Invented demo report.)",
     where: "Assembly",
     when: "2026-07-06T11:20",
     submitted: "2026-07-06T11:34:00",
@@ -415,13 +416,13 @@ const SEED_ALERTS_STORE = [
   },
   {
     id: "alert-seed-2",
-    title: "Assembly Department Demo Arms",
+    title: "Assembly Department Demo Cell",
     when: "2026-07-10T09:15:00",
     qty: 1,
     requestedBy: "M. Alvarez",
     status: "live",
     candidates: [
-      { name: "Alex Rivera", num: "100305", stations: ["Demo Arms"], response: null },
+      { name: "Alex Rivera", num: "100305", stations: ["Demo Cell"], response: null },
     ],
     accepted: [],
   },
